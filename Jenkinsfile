@@ -54,25 +54,12 @@ node {
       // build project via maven
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
-		
-    stage('Build Docker Image') {
-      // build docker image
-      sh "whoami"
-      sh "ls -all /var/run/docker.sock"
-      sh "mv ./target/hello*.jar ./data" 
-      
-      dockerImage = docker.build("hello-world-java")
+	
+	stage('Build Project') {
+      // build project via maven
+      sh "'C:/Program Files/Maven/apache-maven-3.8.6/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
-   
-    stage('Deploy Docker Image'){
-      
-      // deploy docker image to nexus
-
-      echo "Docker Image Tag Name: ${dockerImageTag}"
-
-      sh "docker login -u mdits -p mdits@2022 ${dockerRepoUrl}"
-      sh "docker tag ${dockerImageName} ${dockerImageTag}"
-      sh "docker push ${dockerImageTag}"
-    }
+	
+    
 }
 
