@@ -1,5 +1,5 @@
 node {
-    def WORKSPACE = "G:\docker_test\sourcode\docker_demo"
+    def WORKSPACE = "G:\\docker_test\\sourcode\\docker_demo"
     def dockerImageTag = "docker_demo${env.BUILD_NUMBER}"
 
     try{
