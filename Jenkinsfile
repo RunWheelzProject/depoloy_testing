@@ -11,10 +11,11 @@ node {
                 branch: 'main'
          }
          
-         stage('Build Project') {
-	      // build project via maven
-	      sh "./mvnw package"
-	    }
+         stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
     
        
     }catch(e){
