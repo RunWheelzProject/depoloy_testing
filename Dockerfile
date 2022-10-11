@@ -1,5 +1,7 @@
 # Docker Build Stage
-FROM adoptopenjdk/openjdk11 as build
+FROM maven:3.8.5-openjdk-11 AS maven_build
+
+WORKDIR G:/workdir
 
 ARG JAR_FILE=target/*.jar
 
