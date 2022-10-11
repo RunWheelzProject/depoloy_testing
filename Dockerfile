@@ -1,5 +1,5 @@
 # Docker Build Stage
-FROM openjdk:11 as build
+FROM adoptopenjdk/openjdk11 as build
 
 ARG JAR_FILE=target/*.jar
 
