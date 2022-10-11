@@ -7,7 +7,7 @@ node {
          stage('Clone Repo') {
             // for display purposes
             // Get some code from a GitHub repository
-            git url: 'https://github.com/RunWheelzProject/depoloy_testing',
+            git url: 'https://github.com/RunWheelzProject/depoloy_testing.git',
                 branch: 'main'
          }
           stage('Build docker') {
