@@ -13,10 +13,10 @@ node {
          
          stage('Build Project') {
 	      // build project via maven
-	      sh "./mvnw -Dmaven.test.failure.ignore clean package"
+	      sh "./mvnw package"
 	    }
     
-          
+       
     }catch(e){
 //         currentBuild.result = "FAILED"
         throw e
