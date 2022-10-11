@@ -1,5 +1,5 @@
 # Docker Build Stage
-FROM maven:3.8.6-alpine AS build
+FROM openjdk:11 AS build
 
 
 # Build Stage
