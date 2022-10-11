@@ -1,6 +1,21 @@
 # Docker Build Stage
-FROM adoptopenjdk/openjdk11:latest
+FROM maven:3-jdk-8-alpine AS build
 
-COPY target/docker_demo-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Build Stage
+WORKDIR /opt/app
+
+COPY ./ /opt/app
+RUN mvn clean install -DskipTests
+
+
+# Docker Build Stage
+FROM openjdk:8-jdk-alpine
+
+COPY --from=build /opt/app/target/*.jar app.jar
+
+ENV PORT 8081
+EXPOSE $PORT
+
+ENTRYPOINT ["java","-jar","-Xmx1024M","-Dserver.port=${PORT}","app.jar"]
+
