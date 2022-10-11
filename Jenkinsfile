@@ -13,7 +13,7 @@ node {
          
          stage('Build Project') {
 	      // build project via maven
-	      sh "C:/Program Files/Maven/apache-maven-3.8.6/bin/mvn -Dmaven.test.failure.ignore clean package"
+	      sh "./mvnw -Dmaven.test.failure.ignore clean package"
 	    }
     
           
